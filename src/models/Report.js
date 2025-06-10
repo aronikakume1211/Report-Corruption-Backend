@@ -56,11 +56,11 @@ const reportSchema = new mongoose.Schema({
   },
   hasEvidence: {
     type: Boolean,
-    required: true
+    required: false
   },
   isAnonymous: {
     type: Boolean,
-    required: true
+    required: false
   },
   contactEmail: {
     type: String,

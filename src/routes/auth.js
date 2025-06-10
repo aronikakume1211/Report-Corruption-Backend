@@ -43,7 +43,9 @@ router.post('/register',
         { expiresIn: '7d' }
       );
 
-      res.status(201).json({
+      console.log("Token: ", token)
+
+      const response= res.status(201).json({
         token,
         user: {
           id: user._id,
@@ -52,7 +54,7 @@ router.post('/register',
           role: user.role
         }
       });
-      // console.log("Response, ", res);
+      console.log("response: ", response)
     } catch (error) {
       res.status(500).json({ message: 'Server error' });
     }
