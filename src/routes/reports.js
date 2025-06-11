@@ -19,7 +19,6 @@ router.post('/',
   ],
   async (req, res) => {
     try {
-      console.log('Body',req.body)
       // const errors = validationResult(req);
       // if (!errors.isEmpty()) {
       //   return res.status(400).json({ errors: errors.array() });
@@ -31,7 +30,6 @@ router.post('/',
       });
 
       await report.save();
-      console.log('Report: ', report);
       res.status(201).json(report);
     } catch (error) {
       console.log('Error:',error)
@@ -55,7 +53,6 @@ router.get('/', auth, isAdmin, async (req, res) => {
 
 // Get user's reports
 router.get('/my-reports', auth, async (req, res) => {
-  console.log('Request User: ', req.user)
   try {
     const reports = await Report.find({ reporter: req.user._id })
       .sort({ createdAt: -1 });
